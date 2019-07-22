@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 import MainPage from '@/components/main/MainPage'
 import Movie from '@/components/movieDetail/Movie'
-import CurrentMoviesPage from '@/components/currentMovies/CurrentMoviesPage'
+import MovieList from '@/components/movieLists/MovieList'
 
 Vue.use(Router)
 
@@ -20,9 +20,9 @@ export default new Router({
       component: Movie
     },
     {
-      path: '/current_movies',
-      name: 'CurrentMoviesPage',
-      component: CurrentMoviesPage
+      path: '/movie_list/:status',
+      name: 'movie_list',
+      component: MovieList
     }
   ]
 })

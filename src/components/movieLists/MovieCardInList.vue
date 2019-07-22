@@ -1,6 +1,6 @@
 <template>
-    <div id="movie-card-list">
-        {{movie.title}} : {{movie.rating}}    
+    <div class="movie-card-list">
+        {{movie.title}} : {{movie.eng_title}}    
     </div>
     
 </template>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style>
-    #movie-card-list{
-        
+    .movie-card-list{
+
     }
 </style>
