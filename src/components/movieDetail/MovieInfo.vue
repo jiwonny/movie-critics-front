@@ -42,12 +42,11 @@ export default {
 </script>
 
 <style>
-
     @font-face { font-family: 'GoyangIlsan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff'); font-weight: normal; font-style: normal; }
     @font-face { font-family: 'S-CoreDream-8Heavy'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff'); font-weight: normal; font-style: normal; }
     #movie-info-component{
         padding-top: 2rem;
-        padding-bottom: 3rem;
+        
     }
 
     .movie-info-imgbox{
