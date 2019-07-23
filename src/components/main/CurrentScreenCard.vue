@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img :src="current.img"/>
+        <img v-bind:src="current.img"/>
     </div>
 </template>
 

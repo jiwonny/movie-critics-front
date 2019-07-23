@@ -95,53 +95,6 @@ export default {
     }
 }
 
-// $(document).ready(function(){
-//   $('.carousel').slick({
-//   slidesToShow: 4,
-//   dots:true,
-//   centerMode: true,
-//   });
-// // });
-//  $(document).ready(function(){
-//             $('.carousel').children().children('img').click(function(){
-//                 $('.carousel').slick({
-//                     autoplay: false
-//                 })
-//             })
-
-//             $('.carousel').slick({
-//             dots: true,
-//             centerMode: true,
-//             slidesToShow: 5,
-//             slidesToScroll: 1,
-//             autoplay: true,
-//             autoplaySpeed: 1800
-//             // centerPadding: '60px',
-//             // slidesToShow: 3,
-//             // dots: true,
-//             // responsive: [
-//             //     {
-//             //     breakpoint: 768,
-//             //     settings: {
-//             //         arrows: false,
-//             //         centerMode: true,
-//             //         centerPadding: '40px',
-//             //         slidesToShow: 3
-//             //     }
-//             //     },
-//             //     {
-//             //     breakpoint: 480,
-//             //     settings: {
-//             //         arrows: false,
-//             //         centerMode: true,
-//             //         centerPadding: '40px',
-//             //         slidesToShow: 1
-//             //     }
-//             //     }
-//             // ]
-//             });
-//         })
-
 
 </script>
 

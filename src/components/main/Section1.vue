@@ -1,11 +1,6 @@
 <template>
     <div class="section1-page">
-        <!-- <div class="section1-title-box">
-            <div class="section1-title">Current Movies</div>
-            <div class="section1-title-bar"></div>
-        </div> -->
         <current-screen-list/>
-    
     </div>
 </template>
 
