@@ -29,7 +29,10 @@ export default {
     this.$http.get('http://143.248.39.45:3000/movie/'+this.$route.params.movie_id).then(response => {
       console.log(response.data[0])
       this.movieDetail = response.data[0]
-      this.nScore = Math.ceil(parseInt(this.movieDetail.naver_score) / 2)
+      if(this.movieDetail.naver_score != null){
+        this.nScore = Math.ceil(parseInt(this.movieDetail.naver_score) / 2)
+      }
+      
     })
   },
   data () {

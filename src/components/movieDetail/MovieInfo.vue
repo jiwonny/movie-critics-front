@@ -15,7 +15,7 @@
                 <div class="movie-info-scores">
                     <div class="movie-info-extra d-flex">
                         <div class="movie-info-stitle"><img class="movie-score-logo" src="/static/naver.ico"/></div>
-                        <div class="movie-info-scorenum">{{movieDetail.naver_score}}</div>
+                        <div class="movie-info-scorenum">{{movieDetail.naver_score == null ? '0.00' : movieDetail.naver_score}}</div>
                         <div class="movie-info-stars">
                             <span v-for="(n, index) in nScore" :key=index class="fa fa-star star-checked"/>
                             <span v-for="(n, index) in (5-nScore)" :key=index class="fa fa-star"></span>
