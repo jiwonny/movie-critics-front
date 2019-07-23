@@ -1,25 +1,27 @@
 <template>
     <div>
         <full-page ref="fullpage" :options="options" id="fullpage">
-        <div class="section section1">
-            <section1/>
-        </div>
-        <div class="section section2">
-        Second section ...
-        </div>
-        <div class="section section3">
-        Third section ...
-        </div>
-    </full-page>
+            <div class="section section1">
+                <section1/>
+            </div>
+            <div class="section section2">
+                <section2/>
+            </div>
+            <div class="section section3">
+            Third section ...
+            </div>
+        </full-page>
     </div>
 </template>
 
 <script>
 import Section1 from './Section1.vue'
+import Section2 from './Section2.vue'
 export default {
     name: 'MainPage',
     components: {
-        'section1' : Section1
+        'section1' : Section1,
+        'section2' : Section2
     }
 
 }
@@ -34,7 +36,7 @@ export default {
     /* ------------------------------------------ */
 
     .section2{
-        background-color: rgb(245, 112, 134);
+        background-color: rgb(240, 240, 225);
     }
 
     .section3{

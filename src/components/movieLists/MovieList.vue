@@ -70,9 +70,14 @@ export default {
                 this.page_count = Math.ceil(response.data.length / 10);
             })
         }else if(this.$route.params.status == "extra"){
-            // this.$http.get('http://143.248.39.45:')
-            this.status = 'extra'
-            this.listPageTitle = "기타 영화목록"
+            this.$http.get('http://143.248.39.45:3000/movie_order_score').then(response => {
+                this.movies = null
+                this.movies = response.data
+                this.status = 'extra'
+                this.listPageTitle = "기타 영화목록"
+
+            })
+           
         }
        
     },
@@ -131,12 +136,17 @@ export default {
                     window.scrollTo(0,0)
                 })
             }else if(this.$route.params.status == "extra"){
-            // this.$http.get('http://143.248.39.45:')
-                this.status = 'extra'
-                this.listPageTitle = "기타 영화목록"
-                $('.movie-tab1').removeClass('active-tab')
-                $('.movie-tab2').removeClass('active-tab')
-                $('.movie-tab3').addClass('active-tab')
+                this.$http.get('http://143.248.39.45:3000/movie_order_score').then(response => {
+                    this.movies = null
+                    this.movies = response.data
+                    this.status = 'extra'
+                    this.listPageTitle = "기타 영화목록"
+                    $('.movie-tab1').removeClass('active-tab')
+                    $('.movie-tab2').removeClass('active-tab')
+                    $('.movie-tab3').addClass('active-tab')
+                    window.scrollTo(0,0)
+                })
+           
             }
         }
       
