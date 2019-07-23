@@ -6,7 +6,19 @@
             <img  class="movie-card-img" :src = "movie.img"/>
         </div>
         <div class = "movie-card-content col-xl-6 col-lg-6 col-6 col-md-8 col-sm-8 col-8">
-            <div class = "movie-card-title">{{movie.title.split("_")[0]}}</div>
+            <div class = "movie-card-title">
+                {{movie.title.split("_")[0]}}
+                <span class="movie-card-crown" v-if="movie.movie_id == 1">
+                    <i class="fas fa-crown"></i><i class="fas fa-crown"></i><i class="fas fa-crown"></i>
+                </span>
+                <span class="movie-card-crown" v-if="movie.movie_id == 2">
+                    <i class="fas fa-crown"></i><i class="fas fa-crown"></i>
+                </span>
+                <span class="movie-card-crown" v-if="movie.movie_id == 3">
+                    <i class="fas fa-crown"></i>
+                </span>
+
+            </div>
             <div class = "movie-info-extra d-flex"><div class="movie-info-icon"><i class="far fa-calendar-alt"></i></div><div>{{movie.date}}</div></div>
             <div class = "movie-info-extra d-flex"><div class="movie-info-stitle">감독</div><div class="movie-info-dtext">{{movie.directors}}</div></div>
             <div class = "movie-info-extra d-flex"><div class="movie-info-stitle">출연</div><div class="movie-info-dtext">{{movie.casts}}</div></div>
@@ -19,7 +31,37 @@
         </div>
 
         <div class="movie-card-rate col-lg-3 col-xl-3 col-3 col-md-12 col-sm-12 col-12">
-            <div class="movie-card-rate-title">네이버 평점</div>
+            <div>
+                <div v-if="movie.naver_score != null" class="movie-card-rate-title">
+                    <img class="movie-card-rate-icon" src="/static/naver.ico"/>&nbsp;{{movie.naver_score}}
+                </div>
+                <div v-if="movie.naver_score == null" class="movie-card-rate-null">
+                    <img class="movie-card-rate-icon" src="/static/naver.ico"/>&nbsp;Coming Soon
+                </div>
+                
+                <div v-if="movie.rottentomato != null" class="movie-card-rate-title">
+                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) >= 60" class="movie-card-rate-icon" src="/static/tomato.jpg"/>
+                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) < 60"  class="movie-card-rate-icon" src="/static/rotten.jpg"/>
+                    {{movie.rottentomato}}
+                </div>
+                <div v-if="movie.rottentomato == null" class="movie-card-rate-null">
+                    <img class="movie-card-rate-icon" src="/static/tomato.jpg"/>
+                    Coming Soon
+                </div>
+
+
+                <div v-if="movie.metascore == null || movie.metascore == 'tbd'" class="movie-card-rate-null">
+                    <img class="movie-card-rate-icon" src="/static/metacritic.jpg"/>
+                    Coming Soon
+                </div>
+                <div v-if="movie.metascore != null && movie.metascore != 'tbd'" class="movie-card-rate-title">
+                    <img class="movie-card-rate-icon" src="/static/metacritic.jpg"/>
+                    {{movie.metascore}}
+                </div>
+               
+
+            </div>
+           
         </div>
         
         </div>
@@ -40,7 +82,7 @@ export default {
     .movie-card-list{
         width: 100%;
         cursor: pointer;
-        background-color: white;
+        background-color:white;
         margin-bottom: 1.7rem;
         padding: 1.5rem;
         /* display: flex; */
@@ -83,6 +125,12 @@ export default {
         margin-bottom: 1rem;
     }
 
+    .movie-card-crown{
+        margin-left: 0.6rem;
+        font-size: 1.2rem;
+        color: rgb(248, 203, 2);
+    }
+
     .movie-info-extra{
         margin-bottom: 0.5rem;
     }
@@ -104,16 +152,32 @@ export default {
     }
 
     .movie-card-rate{
+        display: flex;
+        align-items: center;
         padding-left: 1.5rem;
+    }
+
+    .movie-card-rate-null{
+        font-size: 0.9rem;
+        color: gray;
+        font-weight: bold;
+        margin-bottom: 1rem;
     }
     
     .movie-card-rate-title{
+        font-size: 1.3rem;
         font-weight: bold;
+        margin-bottom: 1rem;
     }
 
     .movie-card-list-router a{
         color: black;
         text-decoration : none;
+    }
+
+    .movie-card-rate-icon{
+        width: 1.8rem;
+        margin-right: 1rem;
     }
      /* image 크기 조정 */
     @media only screen and (min-width: 500px) and (max-width:750px){
