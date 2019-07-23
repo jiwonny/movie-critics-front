@@ -19,7 +19,7 @@
                 </span>
 
             </div>
-            <div class = "movie-info-extra d-flex"><div class="movie-info-icon"><i class="far fa-calendar-alt"></i></div><div>{{movie.date}}</div></div>
+            <div title="최근 개봉일" class = "movie-info-extra d-flex"><div class="movie-info-icon"><i class="far fa-calendar-alt"></i></div><div>{{movie.date}}</div></div>
             <div class = "movie-info-extra d-flex"><div class="movie-info-stitle">감독</div><div class="movie-info-dtext">{{movie.directors}}</div></div>
             <div class = "movie-info-extra d-flex"><div class="movie-info-stitle">출연</div><div class="movie-info-dtext">{{movie.casts}}</div></div>
             <div class = "movie-info-extra d-flex"><div class="movie-info-stitle">장르</div><div class="movie-info-dtext">{{movie.genres}}</div></div>

@@ -3,7 +3,7 @@
         <div class="d-flex movie-info-tabbox">
             <div v-on:click="changeTab(1)" id="rate-tab" class="movie-info-tabbtn movie-info-activetab">기자 · 평론가 평점</div>
             <div class="movie-info-tabborder"></div>
-            <div v-on:click="changeTab(2)" id="synopsis-tab" class="movie-info-tabbtn movie-info-inactivetab">줄거리</div>   
+            <div v-on:click="changeTab(2)" id="synopsis-tab" class="movie-info-tabbtn movie-info-inactivetab">줄거리</div>
         </div>
         <div class="movie-info-tabcontent">
             <movie-rate v-if="tab_seen1" v-bind:movieDetail="movieDetail"/>
