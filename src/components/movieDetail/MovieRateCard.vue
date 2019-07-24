@@ -1,29 +1,35 @@
 <template>
     <div class="movie-rate-card">
-        <div class="movie-rate-upper d-flex">
-            <div class="d-flex movie-rate-logo-name">
-                <img v-if="refer == 'naver'" class="movie-rate-logo" src="/static/naver.ico"/>
-                <img v-if="refer == 'meta'" class="movie-rate-logo" src="/static/metacritic.jpg"/>
-                <img v-if="refer == 'tomato'" class="movie-rate-logo" src="/static/rt.png"/>
+        <div class="movie-rate-upper d-flex justify-content-between">
+            <div class="d-flex">
+                <div class="d-flex movie-rate-logo-name">
+                    <img v-if="refer == 'naver'" class="movie-rate-logo" src="/static/naver.ico"/>
+                    <img v-if="refer == 'meta'" class="movie-rate-logo" src="/static/metacritic.jpg"/>
+                    <img v-if="refer == 'tomato'" class="movie-rate-logo" src="/static/rt.png"/>
 
-                <div v-if="rate.name != null" class="movie-rate-name">{{rate.name}}</div>
-                <div v-if="rate.name == null" class="movie-rate-name-null">Anonymous</div>
+                    <div v-if="rate.name != null" class="movie-rate-name">{{rate.name}}</div>
+                    <div v-if="rate.name == null" class="movie-rate-name-null">Anonymous</div>
+                </div>
+
+                <div v-if = "refer == 'naver'" class="movie-rate-score">
+                    <i class="movie-rate-score-icon fas fa-star"></i>{{rate.score}}
+                </div>
+
+                <div v-else-if = "refer == 'meta'" class="movie-rate-score">
+                    <div class="meta-rate-box meta-rate-red" v-if="rate.score <= 39" >{{rate.score}}</div>
+                    <div class="meta-rate-box meta-rate-yellow" v-else-if="rate.score <= 59" >{{rate.score}}</div>
+                    <div class="meta-rate-box meta-rate-green" v-else-if="rate.score <= 100" >{{rate.score}}</div>
+                </div>
+
+                <div v-if = "refer == 'tomato'" class="movie-rate-score">
+                    <img class="movie-rate-score-tomato" v-if="rate.score === 'rotten'" src="/static/rotten.jpg"/>
+                    <img class="movie-rate-score-tomato" v-else-if="rate.score === 'fresh'" src="/static/tomato.jpg"/>
+                    <span class="movie-score-tomato-status">{{rate.score}}</span>
+                </div>
             </div>
-
-            <div v-if = "refer == 'naver'" class="movie-rate-score">
-                <i class="movie-rate-score-icon fas fa-star"></i>{{rate.score}}
-            </div>
-
-            <div v-else-if = "refer == 'meta'" class="movie-rate-score">
-                <div class="meta-rate-box meta-rate-red" v-if="rate.score <= 39" >{{rate.score}}</div>
-                <div class="meta-rate-box meta-rate-yellow" v-else-if="rate.score <= 59" >{{rate.score}}</div>
-                <div class="meta-rate-box meta-rate-green" v-else-if="rate.score <= 100" >{{rate.score}}</div>
-            </div>
-
-            <div v-if = "refer == 'tomato'" class="movie-rate-score">
-                <img class="movie-rate-score-tomato" v-if="rate.score === 'rotten'" src="/static/rotten.jpg"/>
-                <img class="movie-rate-score-tomato" v-else-if="rate.score === 'fresh'" src="/static/tomato.jpg"/>
-                <span class="movie-score-tomato-status">{{rate.score}}</span>
+          
+            <div v-if = "refer == 'tomato' || refer == 'meta'" v-on:click="openCritic(rate, refer)" class="view-full">
+                view full review
             </div>
         </div>
         <div class="movie-rate-contentbox">
@@ -43,12 +49,30 @@
 <script>
 export default {
     name: 'MainRateCard',
-    props: ['rate', 'refer']
+    props: ['rate', 'refer'],
+    methods: {
+        openCritic(rate, refer){
+            if (refer=='meta') {
+                window.open('about:blank').location.href = rate.url
+            }
+            else if (refer=='tomato') {
+                window.open('about:blank').location.href = rate.url
+            }
+        }
+    }
 }
 </script>
 
 <style>
     @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+    .view-full{
+        cursor: pointer;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-size: 0.8rem;
+        text-decoration: underline;
+        color: gray;
+    }
+
     .movie-rate-card{
         margin-bottom: 2.5rem;
         padding: 0.5rem;
