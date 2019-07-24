@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
+@font-face { font-family: 'S-CoreDream-7ExtraBold'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff') format('woff'); font-weight: normal; font-style: normal; }
 
 .section1-page{
     /* default setting padding */
@@ -30,10 +30,10 @@ export default {
 }
 
 .section1-title{
-    font-family: 'Bree serif', serif;
+    font-family : 'S-CoreDream-7ExtraBold', normal;
     font-weight: bolder;
-    font-size: 4.5rem;
-    color: #00264B;
+    font-size: 1.5rem;
+    color: white;
 }
 
 .section1-title-bar{
@@ -42,6 +42,7 @@ export default {
     height: 0.5rem;
     background-color: #FFD319;
 }
+
 
 </style>
 
