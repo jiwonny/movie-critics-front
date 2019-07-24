@@ -32,7 +32,6 @@ export default {
       if(this.movieDetail.naver_score != null){
         this.nScore = Math.ceil(parseInt(this.movieDetail.naver_score) / 2)
       }
-      
     })
   },
   data () {

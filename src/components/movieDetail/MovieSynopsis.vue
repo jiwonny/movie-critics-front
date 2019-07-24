@@ -1,8 +1,12 @@
 <template>
     <div id="movie-synopsis-tab">
+        <div v-if="movieDetail.synopsis_title == null && movieDetail.synopsis_content == null">해당 영화의 줄거리가 존재하지 않습니다.</div>
         <div class="movie-synopsis-title">{{movieDetail.synopsis_title}}</div>
         <div class="movie-synopsis-content">
             {{movieDetail.synopsis_content}}
+        </div>
+
+        <div>
         </div>
     </div>
    

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <full-page ref="fullpage" :options="options" id="fullpage">
+        <full-page ref="fullpage" id="fullpage">
             <div class="section section1">
                 <section1/>
             </div>

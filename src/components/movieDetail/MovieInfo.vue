@@ -13,13 +13,26 @@
                 <div class="movie-info-extra d-flex"><div class="movie-info-stitle">장르</div><div class="movie-info-dtext">{{movieDetail.genres}}</div></div>
 
                 <div class="movie-info-scores">
-                    <div class="movie-info-extra d-flex">
+                    <div class="movie-info-extra-score d-flex">
                         <div class="movie-info-stitle"><img class="movie-score-logo" src="/static/naver.ico"/></div>
-                        <div class="movie-info-scorenum">{{movieDetail.naver_score == null ? '0.00' : movieDetail.naver_score}}</div>
-                        <div class="movie-info-stars">
+                        <div v-if="movieDetail.naver_score == null" class="movie-info-scorenum-null">Coming Soon</div>
+                        <div v-else class="movie-info-scorenum">{{movieDetail.naver_score}}</div>
+                        <div v-if="movieDetail.naver_score != null" class="movie-info-stars">
                             <span v-for="(n, index) in nScore" :key=index class="fa fa-star star-checked"/>
                             <span v-for="(n, index) in (5-nScore)" :key=index class="fa fa-star"></span>
                         </div>
+                    </div>
+
+                    <div class="movie-info-extra-score d-flex">
+                        <div class="movie-info-stitle"><img class="movie-score-logo" src="/static/metacritic.jpg"/></div>
+                        <div v-if="movieDetail.metascore == null || movieDetail.metascore == 'tbd'" class="movie-info-scorenum-null">Coming Soon</div>
+                        <div v-else class="movie-info-scorenum">{{movieDetail.metascore}}</div>
+                    </div>
+
+                    <div class="movie-info-extra-score d-flex">
+                        <div class="movie-info-stitle"><img class="movie-score-logo" src="/static/rt.png"/></div>
+                        <div v-if="movieDetail.rottentomato == null" class="movie-info-scorenum-null">Coming Soon</div>
+                        <div v-else class="movie-info-scorenum">{{movieDetail.rottentomato}}</div>
                     </div>
                 </div>
             </div>
@@ -81,6 +94,10 @@ export default {
         margin-bottom: 0.5rem;
     }
 
+    .movie-info-extra-score{
+        margin-bottom: 1rem;
+    }
+
     .movie-info-stitle,
     .movie-info-icon{
         width: 2.9rem;
@@ -109,6 +126,12 @@ export default {
         font-family: 'S-CoreDream-8Heavy', normal;
         font-size: 1.25rem;
         font-weight: bolder;
+    }
+
+    .movie-info-scorenum-null{
+        color: gray;
+        font-size: 1.1rem;
+        font-weight: bold;
     }
 
     .star-checked{
@@ -143,9 +166,12 @@ export default {
             font-size: 1.1rem;
         }
         
+        .movie-info-extra-score,
         .movie-info-extra{
             font-size: 0.9rem;
         }
+
+
 
         .movie-score-logo{
             width: 1.2rem;
@@ -185,6 +211,7 @@ export default {
             font-size: 0.9rem;
         }
         
+        .movie-info-extra-score,
         .movie-info-extra{
             font-size: 0.7rem;
         }

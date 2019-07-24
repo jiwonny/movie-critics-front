@@ -38,18 +38,7 @@
                 <div v-if="movie.naver_score == null" class="movie-card-rate-null">
                     <img class="movie-card-rate-icon" src="/static/naver.ico"/>&nbsp;Coming Soon
                 </div>
-                
-                <div v-if="movie.rottentomato != null" class="movie-card-rate-title">
-                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) >= 60" class="movie-card-rate-icon" src="/static/tomato.jpg"/>
-                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) < 60"  class="movie-card-rate-icon" src="/static/rotten.jpg"/>
-                    {{movie.rottentomato}}
-                </div>
-                <div v-if="movie.rottentomato == null" class="movie-card-rate-null">
-                    <img class="movie-card-rate-icon" src="/static/tomato.jpg"/>
-                    Coming Soon
-                </div>
-
-
+            
                 <div v-if="movie.metascore == null || movie.metascore == 'tbd'" class="movie-card-rate-null">
                     <img class="movie-card-rate-icon" src="/static/metacritic.jpg"/>
                     Coming Soon
@@ -58,7 +47,16 @@
                     <img class="movie-card-rate-icon" src="/static/metacritic.jpg"/>
                     {{movie.metascore}}
                 </div>
-               
+
+                <div v-if="movie.rottentomato != null" class="movie-card-rate-title">
+                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) >= 60" class="movie-card-rate-icon" src="/static/tomato.jpg"/>
+                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) < 60"  class="movie-card-rate-icon" src="/static/rotten.jpg"/>
+                    {{movie.rottentomato}}
+                </div>
+                <div v-if="movie.rottentomato == null" class="movie-card-rate-null">
+                    <img class="movie-card-rate-icon" src="/static/tomato.jpg"/>
+                    Coming Soon
+                </div>   
 
             </div>
            

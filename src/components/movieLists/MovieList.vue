@@ -18,7 +18,7 @@
                     <div class="movie-list-hr"/>
                 </div>
                 <div class="movie-list-content col-12 col-lg-9 col-xl-9 col-md-9 col-sm-12">
-                    <div class="movie-list-title">{{listPageTitle}}</div>
+                    <div class="movie-list-title"><span style="color: rgb(248, 0, 54); font-size: 1.7rem;">ㅣ</span>&nbsp;&nbsp;{{listPageTitle}}</div>
                     <!-- <div class="movie-list-sortby">순서 정렬 나중에</div> -->
 
                     <!-- <div v-for = "(current, index) in currents" :key = "index">{{current.title}}</div> -->
@@ -75,22 +75,20 @@ export default {
                 this.movies = response.data
                 this.status = 'extra'
                 this.listPageTitle = "기타 영화목록"
-
             })
            
         }
-       
     },
     mounted(){
-        if(this.status == 'current'){
+        if(this.$route.params.status === 'current'){
             $('.movie-tab1').addClass('active-tab')
             $('.movie-tab2').removeClass('active-tab')
             $('.movie-tab3').removeClass('active-tab')
-        }else if(this.status == 'pre'){
+        }else if(this.$route.params.status === 'pre'){
             $('.movie-tab1').removeClass('active-tab')
             $('.movie-tab2').addClass('active-tab')
             $('.movie-tab3').removeClass('active-tab')
-        }else if(this.status == 'extra'){
+        }else if(this.$route.params.status === 'extra'){
             $('.movie-tab1').removeClass('active-tab')
             $('.movie-tab2').removeClass('active-tab')
             $('.movie-tab3').addClass('active-tab')
@@ -105,7 +103,7 @@ export default {
             movies : null,
             currentPage : 1,
             page_count : 1,
-            status : 'current',
+            status : null,
             listPageTitle : "현재 상영작"
         }
     },

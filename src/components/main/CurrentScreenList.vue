@@ -45,8 +45,7 @@ export default {
             // console.log('currents : '+this.currents)
         })
     },
-    mounted(){
-       
+    mounted(){      
         console.log('mounted');
 
          $('.carousel').children().children('img').click(function(){
@@ -62,29 +61,6 @@ export default {
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 1800
-        // centerPadding: '60px',
-        // slidesToShow: 3,
-        // dots: true,
-        // responsive: [
-        //     {
-        //     breakpoint: 768,
-        //     settings: {
-        //         arrows: false,
-        //         centerMode: true,
-        //         centerPadding: '40px',
-        //         slidesToShow: 3
-        //     }
-        //     },
-        //     {
-        //     breakpoint: 480,
-        //     settings: {
-        //         arrows: false,
-        //         centerMode: true,
-        //         centerPadding: '40px',
-        //         slidesToShow: 1
-        //     }
-        //     }
-        // ]
         });
     },
     data(){

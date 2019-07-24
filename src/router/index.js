@@ -4,8 +4,8 @@ import Router from 'vue-router'
 import MainPage from '@/components/main/MainPage'
 import Movie from '@/components/movieDetail/Movie'
 import MovieList from '@/components/movieLists/MovieList'
-
 import SearchResult from '@/components/search/SearchResult'
+import GenrePage from '@/components/genre/GenrePage'
 
 Vue.use(Router)
 
@@ -30,6 +30,11 @@ export default new Router({
       path: '/search',
       name: 'search_result',
       component: SearchResult
+    },
+    {
+      path: '/genre',
+      name: 'genre',
+      component: GenrePage
     }
   ]
 })

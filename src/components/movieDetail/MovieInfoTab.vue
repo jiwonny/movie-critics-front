@@ -68,7 +68,7 @@ export default {
     }
 
     .movie-info-activetab{
-        border-bottom: 2px solid rgb(255, 219, 61);
+        border-bottom: 2px solid rgb(248, 0, 54);
          -moz-transition: all .2s ease-in;
         -o-transition: all .2s ease-in;
         -webkit-transition: all .2s ease-in;

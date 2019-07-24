@@ -9,7 +9,7 @@
         {{desc.genres}}<br>
         {{desc.status}}
         
-        <div>
+        <div v-if="desc != null">
             <router-link :to="{name : 'movie', params: {movie_id: desc.movie_id}}">ABOUT</router-link>
         </div>
     </div>
