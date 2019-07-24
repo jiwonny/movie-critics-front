@@ -34,7 +34,7 @@ export default {
     }
 
     .section2{
-        background-color: rgb(240, 240, 225);
+        background-color: rgb(21, 21, 22);
     }
 
     .section3{

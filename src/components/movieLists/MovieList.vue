@@ -172,7 +172,8 @@ export default {
         padding-top: 4rem;
         padding-bottom: 4rem;
         font-family: 'GoyangIlsan', normal;
-        background-color: rgb(240, 240, 240);
+        background-color: rgb(245, 245, 245);
+        /* background-color :  white; */
     }
 
     .active-tab{

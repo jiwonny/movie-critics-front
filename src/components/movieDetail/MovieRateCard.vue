@@ -61,6 +61,7 @@ export default {
     }
     
     .movie-rate-logo-name{
+        
     }
     
     .movie-rate-name{

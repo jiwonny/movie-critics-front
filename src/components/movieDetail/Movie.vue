@@ -1,16 +1,18 @@
 <template>
-  <div id="movie-detail-page" class="container">
-    <div class="movie-detail-body row">
-      <movie-info
-        class="col-lg-4 col-md-4 col-sm-12"
-        v-bind:movieDetail="movieDetail"
-        v-bind:nScore="nScore"
-      />
+  <div id="movie-detail-page">
+    <div class="container">
+      <div class="movie-detail-body row">
+        <movie-info
+          class="col-lg-4 col-md-4 col-sm-12"
+          v-bind:movieDetail="movieDetail"
+          v-bind:nScore="nScore"
+        />
 
-      <movie-info-tab 
-        class="col-lg-8 col-md-8 col-sm-12"
-        v-bind:movieDetail="movieDetail"  
-      ></movie-info-tab>
+        <movie-info-tab 
+          class="col-lg-8 col-md-8 col-sm-12"
+          v-bind:movieDetail="movieDetail"  
+        ></movie-info-tab>
+      </div>
     </div>
   </div>
 </template>
@@ -46,6 +48,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #movie-detail-page{
+  background-color: rgb(251, 251, 251);
+  padding-bottom: 7rem;
   padding-top: 4rem;
 }
 
