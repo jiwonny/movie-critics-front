@@ -49,8 +49,8 @@
                 </div>
 
                 <div v-if="movie.rottentomato != null" class="movie-card-rate-title">
-                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) >= 60" class="movie-card-rate-icon" src="/static/tomato.jpg"/>
-                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) < 60"  class="movie-card-rate-icon" src="/static/rotten.jpg"/>
+                    <img v-if="movie.rottentomato >= 60 " class="movie-card-rate-icon" src="/static/tomato.jpg"/>
+                    <img v-if="movie.rottentomato < 60 "  class="movie-card-rate-icon" src="/static/rotten.jpg"/>
                     {{movie.rottentomato}}
                 </div>
                 <div v-if="movie.rottentomato == null" class="movie-card-rate-null">
