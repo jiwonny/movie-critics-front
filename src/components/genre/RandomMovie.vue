@@ -1,6 +1,6 @@
 <template>
     <div>
-        Random Movie List 뭘 보여야 할지?
+        Ra
     </div>
 </template>
 

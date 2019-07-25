@@ -13,6 +13,7 @@
                 <div class="movie-info-extra d-flex"><div class="movie-info-stitle">장르</div><div class="movie-info-dtext">{{movieDetail.genres}}</div></div>
 
                 <div class="movie-info-scores">
+                    <div v-if="(movieDetail.naver_score >= 7.5 && movieDetail.metascore >= 80) || (movieDetail.naver_score >= 7.5 && movieDetail.rottentomato >= 80) || (movieDetail.metascore >= 80 && movieDetail.rottentomato >= 80)" class="must-see">MAD MOVIE</div>
                     <div class="movie-info-extra-score d-flex">
                         <div class="movie-info-stitle"><img class="movie-score-logo" src="/static/naver.ico"/></div>
                         <div v-if="movieDetail.naver_score == null" class="movie-info-scorenum-null">Coming Soon</div>
@@ -23,16 +24,23 @@
                         </div>
                     </div>
 
-                    <div class="movie-info-extra-score d-flex">
+                    <div v-on:click="openMeta(movieDetail)" class="movie-info-extra-score d-flex">
                         <div class="movie-info-stitle"><img class="movie-score-logo" src="/static/metacritic.jpg"/></div>
                         <div v-if="movieDetail.metascore == null || movieDetail.metascore == 'tbd'" class="movie-info-scorenum-null">Coming Soon</div>
-                        <div v-else class="movie-info-scorenum">{{movieDetail.metascore}}</div>
+                        <!-- <div v-else class="movie-info-scorenum">{{movieDetail.metascore}}</div> -->
+                        <div v-else-if="movieDetail.metascore <= 39" class="meta-rate-box2 meta-rate-red" >{{movieDetail.metascore}}</div>
+                        <div v-else-if="movieDetail.metascore <= 59" class="meta-rate-box2 meta-rate-yellow">{{movieDetail.metascore}}</div>
+                        <div v-else-if="movieDetail.metascore <= 100" class="meta-rate-box2 meta-rate-green">{{movieDetail.metascore}}</div>
                     </div>
 
-                    <div class="movie-info-extra-score d-flex">
+                    <div v-on:click="openTomato(movieDetail)" class="movie-info-extra-score d-flex">
                         <div class="movie-info-stitle"><img class="movie-score-logo" src="/static/rt.png"/></div>
                         <div v-if="movieDetail.rottentomato == null" class="movie-info-scorenum-null">Coming Soon</div>
                         <div v-else class="movie-info-scorenum">{{movieDetail.rottentomato}}</div>
+                        <img class="movie-rate-score-tomato2" v-if="movieDetail.rottentomato < 60" src="/static/rotten.jpg"/>
+                        <img class="movie-rate-score-tomato2" v-else-if="movieDetail.rottentomato <= 100" src="/static/tomato.jpg"/>
+                    </div>
+
                     </div>
                 </div>
             </div>
@@ -50,16 +58,62 @@ export default {
             // naver_score :
             //Math.ceil(parseInt(this.movieDetail.naver_score) / 2)
         }
+    },
+    methods: {
+        openMeta(movieDetail){
+            window.open('about:blank').location.href = movieDetail.meta_url
+        },
+        openTomato(movieDetail){
+            window.open('about:blank').location.href = movieDetail.tomato_url
+        }
     }
 }
 </script>
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Bangers|Permanent+Marker&display=swap');
     @font-face { font-family: 'GoyangIlsan'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff'); font-weight: normal; font-style: normal; }
     @font-face { font-family: 'S-CoreDream-8Heavy'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff') format('woff'); font-weight: normal; font-style: normal; }
     #movie-info-component{
         padding-top: 2rem;
         
+    }
+
+    .must-see{
+        color: rgb(254, 0 , 42);
+        font-family: 'Bangers', cursive;
+        margin-top: 0.4rem;
+        font-size: 2.5rem;
+    }
+
+    .movie-rate-score-tomato2{
+        margin-left: 0.8rem;
+        margin-top: 0.1rem;
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    .meta-rate-box2{
+        text-align: center;
+        width: 1.8rem;
+        height: 1.8rem;
+        line-height: 2.1rem;
+        color: white;
+        font-size: 1.3rem;
+        font-weight: bold;
+        border-radius: 8px;
+    }
+
+    .meta-rate-red{
+        background-color : #FF0000; 
+    }
+
+    .meta-rate-yellow{
+        background-color : #FFCC33;
+    }
+
+    .meta-rate-green{
+        background-color : #66CC33;
     }
 
     .movie-info-imgbox{
@@ -96,6 +150,7 @@ export default {
 
     .movie-info-extra-score{
         margin-bottom: 1rem;
+        cursor: pointer;
     }
 
     .movie-info-stitle,
@@ -114,7 +169,7 @@ export default {
         height: 5rem;
         border-top: solid rgb(168, 168, 168) 0.2px;
         margin-top: 2rem;
-        padding-top: 2rem;
+        padding-top: 1rem;
     }
 
     .movie-score-logo{

@@ -31,9 +31,9 @@
                 <div class="genre-text">SF</div>
             </div>
             
-            <div class="genre-box" v-on:click="$emit('genre-search', '호러')">
+            <div class="genre-box" v-on:click="$emit('genre-search', '공포')">
                 <div class="genre-icon-box"><i class="genre-icon fas fa-skull"></i></div>
-                <div class="genre-text">호러</div>
+                <div class="genre-text">공포</div>
             </div>
             
             <div class="genre-box" v-on:click="$emit('genre-search', '서부')">

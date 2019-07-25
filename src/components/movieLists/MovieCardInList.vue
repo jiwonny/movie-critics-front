@@ -32,6 +32,7 @@
 
         <div class="movie-card-rate col-lg-3 col-xl-3 col-3 col-md-12 col-sm-12 col-12">
             <div>
+                <div v-if="(movie.naver_score >= 7.5 && movie.metascore >= 80) || (movie.naver_score >= 7.5 && movie.rottentomato >= 80) || (movie.metascore >= 80 && movie.rottentomato >= 80)" class="must-see">MAD MOVIE</div>
                 <div v-if="movie.naver_score != null" class="movie-card-rate-title">
                     <img class="movie-card-rate-icon" src="/static/naver.ico"/>&nbsp;{{movie.naver_score}}
                 </div>
@@ -49,8 +50,8 @@
                 </div>
 
                 <div v-if="movie.rottentomato != null" class="movie-card-rate-title">
-                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) >= 60" class="movie-card-rate-icon" src="/static/tomato.jpg"/>
-                    <img v-if="parseInt(movie.rottentomato.split('%')[0]) < 60"  class="movie-card-rate-icon" src="/static/rotten.jpg"/>
+                    <img v-if="movie.rottentomato >= 60" class="movie-card-rate-icon" src="/static/tomato.jpg"/>
+                    <img v-if="movie.rottentomato < 60"  class="movie-card-rate-icon" src="/static/rotten.jpg"/>
                     {{movie.rottentomato}}
                 </div>
                 <div v-if="movie.rottentomato == null" class="movie-card-rate-null">
@@ -77,6 +78,14 @@ export default {
 </script>
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Bangers|Permanent+Marker&display=swap');
+    .must-see{
+        color: rgb(254, 0 , 42);
+        font-family: 'Bangers', cursive;
+        margin-top: 0.05rem;
+        font-size: 2rem;
+    }
+
     .movie-card-list{
         width: 100%;
         cursor: pointer;

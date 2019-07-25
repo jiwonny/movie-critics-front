@@ -13,7 +13,7 @@
                     </div>
                     <div class="movie-list-hr"/>
                     <div class="movie-list-tab col col-lg-12 col-xl-12 col-md-12 col-sm">
-                        <router-link class="movie-tab3"  @click.native="changeData('extra')" :to="{name: 'movie_list', params: {status : 'extra'}}">기타 영화목록</router-link>
+                        <router-link class="movie-tab3"  @click.native="changeData('extra')" :to="{name: 'movie_list', params: {status : 'extra'}}">MAD MOVIES</router-link>
                     </div>
                     <div class="movie-list-hr"/>
                 </div>

@@ -3,10 +3,18 @@
         <genre-category v-on:genre-search="getmoviebygenre"></genre-category>
        
         <div class="container genre-movie-list">
-            <random-movie v-if="genreType == null"/>
-            <div v-if="genreType != null" class="genre-type-title"><span style="color: rgb(248, 0, 54)">ㅣ</span>&nbsp;&nbsp;&nbsp;{{genreType}}</div>
-            <div v-for="(genre_movie, index) in genre_movies" :key="index"><img :src="genre_movie.img"/>{{genre_movie.title}}</div>
-            <div v-if = "genreType != null" class="pagination-box d-flex justify-content-center"><v-pagination v-model="currentPage" :page-count="page_count"></v-pagination></div>
+            <!-- <random-movie v-if="genreType == null"/> -->
+            <div class="genre-type-title"><span style="color: rgb(248, 0, 54)">ㅣ</span>&nbsp;&nbsp;&nbsp;{{genreType}}</div>
+            <!-- <div class="genre-movie-list" v-for="(genre_movie, index) in genre_movies" :key="index"><img :src="genre_movie.img"/>{{genre_movie.title}}</div> -->
+            <div class="row genre-movie-list">
+                <genre-movie-card
+                    v-for="(genre_movie, index) in genre_movies"
+                    :key = "index"
+                    v-bind:genre_movie="genre_movie"
+                    v-bind:index="index">
+                </genre-movie-card>
+            </div>
+            <!-- <div v-if = "genreType != null" class="pagination-box d-flex justify-content-center"><v-pagination v-model="currentPage" :page-count="page_count"></v-pagination></div> -->
             
         </div>
         
@@ -17,18 +25,20 @@
 import vPagination from 'vue-plain-pagination'
 import GenreCategory from '@/components/genre/GenreCategory'
 import RandomMovie from '@/components/genre/RandomMovie'
+import GenreMovieCard from '@/components/genre/GenreMovieCard'
 
 export default{
     name: 'GenrePage',
     components : {
         vPagination,
         'genre-category' : GenreCategory,
-        'random-movie' : RandomMovie  
+        'random-movie' : RandomMovie,  
+        'genre-movie-card' : GenreMovieCard
     },
     data(){
         return{
             genre_movies : null,
-            genreType : null,
+            genreType : '장르를 선택하세요',
             currentPage : 1,
             page_count : 10
         }
