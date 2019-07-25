@@ -37,8 +37,8 @@
                         <div class="movie-info-stitle"><img class="movie-score-logo" src="/static/rt.png"/></div>
                         <div v-if="movieDetail.rottentomato == null" class="movie-info-scorenum-null">Coming Soon</div>
                         <div v-else class="movie-info-scorenum">{{movieDetail.rottentomato}}</div>
-                        <img class="movie-rate-score-tomato2" v-if="movieDetail.rottentomato < 60" src="/static/rotten.jpg"/>
-                        <img class="movie-rate-score-tomato2" v-else-if="movieDetail.rottentomato <= 100" src="/static/tomato.jpg"/>
+                        <img class="movie-rate-score-tomato2" v-if="movieDetail.rottentomato != null && movieDetail.rottentomato < 60"  src="/static/rotten.jpg"/>
+                        <img class="movie-rate-score-tomato2" v-else-if="movieDetail.rottentomato != null && movieDetail.rottentomato <= 100" src="/static/tomato.jpg"/>
                     </div>
 
                     </div>
