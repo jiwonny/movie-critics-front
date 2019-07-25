@@ -5,6 +5,10 @@
         <div class="movie-synopsis-content">
             {{movieDetail.synopsis_content}}
         </div>
+        <div v-if="movieDetail.shortview != null" class="movie-shortview">Consensus</div>
+        <div v-if="movieDetail.shortview != null" style="margin-top: 0.8rem;">
+            {{movieDetail.shortview}}
+        </div>
 
         <div class="movie-trailer-title">
             < 예고편 >
@@ -35,6 +39,12 @@ export default {
 
 
 <style>
+    .movie-shortview {
+        margin-top: 3rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
     .movie_trailer_thumb {
         cursor: pointer;
     }
