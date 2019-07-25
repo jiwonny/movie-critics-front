@@ -171,7 +171,7 @@ export default {
     #movie-list-page{
         padding-top: 4rem;
         padding-bottom: 4rem;
-        font-family: 'GoyangIlsan', normal;
+        font-family: 'Noto Sans KR', sans-serif;
         background-color: rgb(245, 245, 245);
         /* background-color :  white; */
     }

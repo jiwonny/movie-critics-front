@@ -59,7 +59,7 @@ export default {
 <style>
     #movie-info-tabs{
         padding-top: 2rem;
-        font-family: 'GoyangIlsan', normal;
+        font-family: 'Noto Sans KR', sans-serif;
     }
 
     .movie-info-tabbox{

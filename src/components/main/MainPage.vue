@@ -7,6 +7,9 @@
             <div class="section section2">
                 <section2/>
             </div>
+            <div class="section section3">
+                <section3/>
+            </div>
            
         </full-page>
     </div>
@@ -15,11 +18,13 @@
 <script>
 import Section1 from './Section1.vue'
 import Section2 from './Section2.vue'
+import Section3 from './Section3.vue'
 export default {
     name: 'MainPage',
     components: {
         'section1' : Section1,
-        'section2' : Section2
+        'section2' : Section2,
+        'section3' : Section3
     }
 }
 </script>
@@ -37,7 +42,7 @@ export default {
     }
 
     .section3{
-        background-color: blueviolet;
+        background-color: rgb(21, 21, 22);
     }
 
     .fp-tableCell{

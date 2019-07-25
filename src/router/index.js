@@ -27,7 +27,7 @@ export default new Router({
       component: MovieList
     },
     {
-      path: '/search',
+      path: '/search/:query',
       name: 'search_result',
       component: SearchResult
     },
