@@ -7,9 +7,7 @@
             <div class="section section2">
                 <section2/>
             </div>
-            <!-- <div class="section section3">
-            Third section ...
-            </div> -->
+           
         </full-page>
     </div>
 </template>
@@ -23,7 +21,6 @@ export default {
         'section1' : Section1,
         'section2' : Section2
     }
-
 }
 </script>
 
@@ -32,6 +29,8 @@ export default {
         /* background-color: white; */
         background-color: rgb(21, 21, 22);
     }
+
+    /* ------------------------------------------ */
 
     .section2{
         background-color: rgb(21, 21, 22);

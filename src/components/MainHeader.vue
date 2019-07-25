@@ -6,15 +6,12 @@
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
             <router-link to="/" class="navbar-brand" href="#">Hidden brand</router-link>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <router-link :to="{name: 'movie_list', params: {status: 'current'}}" class="nav-link nav-link2">영화 목록</router-link>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li>
+                <router-link to="/genre" class="nav-link nav-link2">장르별 영화</router-link>
+            </li> 
             </ul>
             <router-link :to="{name : 'search_result'}" class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -31,8 +28,9 @@ export default {
 </script>
  
 <style>
-
+    @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
     .main-header{
+        font-family: 'Noto Sans KR', sans-serif;
         position: fixed;
         right: 0;
         top: 0;
@@ -44,4 +42,47 @@ export default {
         z-index: 1000;
     }
 
+    .navbar-light{
+        padding-top: 1rem;
+    }
+
+    .navbar-light .navbar-brand {
+        font-size: 1.4rem;
+        margin-left: 1.5rem;
+        color: rgb(248, 0, 54);
+        font-weight: bold;
+        margin-right: 2rem;
+    }
+
+    .navbar-light .navbar-brand:hover{
+        color : rgb(248, 0, 54);
+    }
+
+    .navbar-light .navbar-brand:focus{
+        color : rgb(248, 0, 54);
+    }
+
+    .navbar-light .navbar-brand:active{
+        color : rgb(248, 0, 54);
+    }
+
+    .navbar-light .navbar-brand:link{
+        color : rgb(248, 0, 54);
+    }
+
+    a.nav-link2{
+        font-weight: bold;
+        font-size: 0.9rem;
+        color: rgb(150, 150, 150) !important;
+    }
+
+    .nav-item a.router-link-active{
+        color: rgb(107, 107, 107) !important;
+    }
+
+    a.nav-link2:hover{
+        font-weight: bolder;
+        color : rgb(248, 0, 54) !important;
+    }
 </style>
+
