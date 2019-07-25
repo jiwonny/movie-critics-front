@@ -75,7 +75,7 @@ export default{
         margin-bottom: 2rem;
         font-weight: bolder;
         font-size: 1.7rem;
-        font-family: 'GoyangIlsan', normal;
+        font-family: 'Noto Sans KR', sans-serif;
     }
    
    .active-tab{

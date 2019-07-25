@@ -17,9 +17,20 @@ export default {
 .pre-screen-image{
 	width:10rem;
 	height:14rem;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
 }
 .pre-screen-image-box{
 	margin-bottom: 2rem;
 }
 
+.pre-screen-image:hover{
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    opacity: 0.4;
+}
 </style>

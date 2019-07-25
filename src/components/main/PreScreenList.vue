@@ -1,5 +1,6 @@
 <template>
    <div id="prescreenrow" class="container">
+        <div class="pre-list-title">상영 예정작</div>
         <div class="row pre-screen-list">
             <pre-screen-card
                 v-for="(pre, index) in pres"
@@ -7,8 +8,9 @@
                 v-bind:pre="pre"
                 v-bind:index = "index">
             </pre-screen-card>
-            
         </div>
+
+        <router-link class="main-list-more main-list-more-pre" :to="{name: 'movie_list', params: {status : 'pre'}}">개봉 예정작 목록</router-link>
     </div>
 </template>
 
@@ -44,13 +46,22 @@ export default {
 </script>
 
 <style>
-   #current-screen-carousel{
+   @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+    .pre-list-title{
+        margin-top: 5rem;
+        font-family: 'Noto Sans KR', sans-serif;
+        color: white;
+        font-size: 1.35rem;
+        font-weight: bold;
+    }
+    
+    #current-screen-carousel{
        margin-top: 2rem;
        display: flex;
        justify-content: center;
        /* width: 100%; */
        /* border: gray solid 0.5px; */
-   }
+    }
 
     .wrapper{
         width:85%;
@@ -65,39 +76,13 @@ export default {
         width:90%;
         margin:0px auto;
     }
-    .slick-slide{
-        margin:10px;
-    }
-    .slick-slide img{
-        width:100%;
-    }
-
-    .slick-dots li button:before{
-        color: white;
-    }
-
-    .slick-dots li.slick-active button:before
-    {
-        color: white;
-    }
    
-   .carousel div img{
-       transform: scale(0.95);
-       -moz-transition: all .2s ease-in;
-        -o-transition: all .2s ease-in;
-        -webkit-transition: all .2s ease-in;
-        transition: all .2s ease-in;
-   }
-
-   .carousel div img:hover{
-       transform: scale(1.15);
-        -moz-transition: all .2s ease-in;
-        -o-transition: all .2s ease-in;
-        -webkit-transition: all .2s ease-in;
-        transition: all .2s ease-in;
-   }
    
    .pre-screen-list{
         margin-top: 3rem;
+   }
+
+   .main-list-more-pre{
+       padding-right: 0rem !important;
    }
 </style>
