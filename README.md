@@ -1,6 +1,6 @@
-# MAD CRITICS
+# MAD CRITICS(공부 목적 개발)
 
-평론가들의 영화 평론과 평점을 한번에 보고 싶어 진행한 프로젝트. 국내 및 해외 영화 평론 사이트에서 평론가들의 평론 및 기타 정보들을 가져와 웹사이트 구성.
+평론가들의 영화 평론과 평점을 한번에 보고 싶어 진행한 프로젝트. 국내 및 해외 영화 평론 사이트에서 평론가들의 평론 및 기타 정보들을 가져와 웹사이트 구성. 공부 목적의 개발. 데이터의 저작권은 NAVER, Rotten Tomato, Movie Critics 에 있음. 
 
 <b><i>Front: Vue.js, Back: Python, Node.js, Database: PostgreSQL</i></b>
 <br>
